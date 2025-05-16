@@ -1,0 +1,50 @@
+Capstone 2 – RIPA Dataset Modeling
+Final Model Metrics
+
+Problem:
+Predict stopduration (in minutes) for police stops using the San Diego RIPA dataset.
+
+Selected Final Model:
+Random Forest Regressor
+
+Model Details:
+- n_estimators: 25
+- max_depth: 15
+- max_features: 'sqrt'
+- random_state: 42
+
+Preprocessing Summary:
+- Categorical variables encoded using one-hot encoding
+- Numerical features standardized using StandardScaler
+- Missing values imputed using mean strategy
+- Feature selection using SelectFromModel (Random Forest, top 50%)
+
+
+Performance on Test Set:
+- RMSE: 41.573
+- R² Score: 0.334
+
+Train Set Performance:
+- RMSE: 35.648
+- R² Score: 0.489
+
+Bootstrapped Random Forest Performance (n = 20 samples):
+- RMSE Range: 41.675 – 42.019
+- R² Range: 0.320 – 0.331
+
+Other Model Results:
+- Dummy Regressor:
+  - RMSE: 50.954
+  - R²: ≈ 0.000
+- Linear Regression:
+  - RMSE: 45.565
+  - R²: 0.200
+- Ridge Regression (alpha=100):
+  - RMSE: 45.565
+  - R²: 0.200
+- K-Nearest Neighbors:
+  - RMSE: 49.691
+  - R²: 0.049
+
+Conclusion:
+The Random Forest Regressor provided the best overall performance among tested models, achieving moderate predictive power and outperforming all baselines. It was further validated with bootstrapping to confirm stability. Although the R² values indicate that a large portion of variance remains unexplained, this modeling pipeline offers a strong foundation for further exploration and refinement.
